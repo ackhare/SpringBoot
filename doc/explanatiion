@@ -1,0 +1,46 @@
+1)you add springboot-starter-web dependency by default it will pull all the commonly used
+libraries while developing Spring MVC applications such as spring-webmvc, jackson-json, validation-api and tomcat.
+2)We have added spring-boot-starter-data-jpa dependency. This pulls all the spring-data-jpa dependencies
+and also adds Hibernate libraries because the majority of the applications use Hibernate as JPA implementation.
+
+3) spring-boot-starter-web adds all these libraries but also configures the commonly registered beans
+ like DispatcherServlet, ResourceHandlers, MessageSource etc beans with sensible defaults
+
+4)We haven’t defined any of the DataSource, EntityManagerFactory,
+ TransactionManageretc beans but they are automatically gets created
+
+5)We have added spring-boot-starter-web which pulls the spring-boot-starter-tomcat
+automatically and when we run the main() method it started tomcat as an embedded container
+so that we don’t have to deploy our application on any externally installed tomcat server.
+
+6)our packaging type in pom.xml is ‘jar’ not ‘war’. Wonderful!
+
+
+7)if Thymeleaf is on your path, Spring Boot adds a SpringTemplateEngine to your application
+ context automatically. But if you define your own SpringTemplateEngine with your own settings,
+  then Spring Boot won’t add one. This leaves you in control with little effort on your part.
+
+8)Spring Boot doesn’t generate code or make edits to your files.
+
+9)Spring Boot dynamically wires up beans and settings and applies them to your application context.
+
+10) @RestController, meaning it’s ready for use by Spring MVC to handle web requests.
+@RequestMapping maps / to the index() method. When invoked from a browser or using curl on the command line,
+the method returns pure text.
+That’s because @RestController combines @Controller and @ResponseBody,
+two annotations that results in web requests returning data rather than a view.
+
+11)@SpringBootApplication is a convenience annotation that adds all of the following:
+
+@Configuration tags the class as a source of bean definitions for the application context.
+
+@EnableAutoConfiguration tells Spring Boot to start adding beans based on classpath settings, other beans, and
+various property settings.
+Normally you would add @EnableWebMvc for a Spring MVC app, but Spring Boot adds it automatically when
+it sees spring-webmvc on the classpath. This flags the application as a web application and activates
+key behaviors such as setting up a DispatcherServlet.
+
+@ComponentScan tells Spring to look for other components, configurations, and services in the the hello package,
+allowing it to find the controllers.
+
+12)
